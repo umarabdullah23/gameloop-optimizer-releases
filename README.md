@@ -4,9 +4,9 @@ Boost your GameLoop FPS, reduce lag, and optimize your PC for PUBG Mobile — in
 
 ## Download
 
-**[⬇ Download GameLoopOptimizer-0.1.1.exe](https://github.com/umarabdullah23/gameloop-optimizer-releases/releases/download/v0.1.1/GameLoopOptimizer-0.1.1.exe)**
+**[⬇ Download GameLoopOptimizerClient.exe](https://github.com/umarabdullah23/gameloop-optimizer-releases/releases/latest/download/GameLoopOptimizerClient.exe)**
 
-> Current version: **v0.1.1**  
+> Current version: **v0.1.2** — always points to the latest release  
 > Windows 10 / 11 — no installation needed, just run the .exe
 
 ---

@@ -1,7 +1,7 @@
 {
-  "version": "0.1.1",
+  "version": "0.1.2",
   "released_at": "2026-05-14T00:00:00Z",
-  "asset_name": "GameLoopOptimizer-0.1.1.exe",
-  "sha256": "a3165bf54615114c588ac11494109bc7469c5eacba27d4abfa7b607d3e26cf26",
-  "notes": "Test release v0.1.1."
+  "asset_name": "GameLoopOptimizerClient.exe",
+  "sha256": "c4c43b5e5ba4c75ef98491c9a5796f92313265c87cfea8b4e797ec9cd2afdfcf",
+  "notes": "Version now shown correctly in Settings tab. Download filename is now version-agnostic."
 }
