@@ -1,7 +1,7 @@
 {
-  "version": "0.2.1",
+  "version": "0.2.2",
   "released_at": "2026-05-14T00:00:00Z",
   "asset_name": "GameLoopOptimizerClient.exe",
-  "sha256": "b762c36d5e4557276db483d6f4b840f61f55659cbb10c1f1fdf84145c9b3da42",
-  "notes": "Fix splash order: license dialog shows first, splash appears after activation while app loads."
+  "sha256": "f67a7875afec38fa657304f4c90f6954864fc99a8342abc4f2415f00c7fc9852",
+  "notes": "Fix update check: now reads latest.json directly instead of GitHub API (no rate limits)."
 }
