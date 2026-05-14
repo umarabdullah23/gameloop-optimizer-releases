@@ -1,7 +1,7 @@
 {
-  "version": "0.1.9",
+  "version": "0.2.0",
   "released_at": "2026-05-14T00:00:00Z",
   "asset_name": "GameLoopOptimizerClient.exe",
-  "sha256": "90db945bce3e5912b297e72a77408a2abf4833a27ac85f0e2163f890ba0c00d2",
-  "notes": "Test release v0.1.9."
+  "sha256": "545f3b5934d7c5c18494171a3a838e105f897890311bd5b0e01ceb33ad7a3287",
+  "notes": "Splash screen replaced with proper design. Splash now hides before license dialog appears."
 }
