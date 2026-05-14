@@ -1,7 +1,7 @@
 {
-  "version": "0.1.0",
+  "version": "0.1.1",
   "released_at": "2026-05-14T00:00:00Z",
-  "asset_name": "GameLoopOptimizer-0.1.0.exe",
-  "sha256": "276bbe45e2ff3337ced865845373651e368b1250f1c0842d01c9e89a11844aa7",
-  "notes": "First public release. License-gated client with GameLoop settings, optimizer, network tweaks, ADB, process reducer, save editor, and auto-update support."
+  "asset_name": "GameLoopOptimizer-0.1.1.exe",
+  "sha256": "17d72c2844469c3e57dd1a7c0ab33b1f8c067d764674bfd66087a336cc3485cc",
+  "notes": "Auto-update wired to umarabdullah23/gameloop-optimizer-releases. Version bump to 0.1.1."
 }
