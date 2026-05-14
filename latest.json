@@ -1,7 +1,7 @@
 {
-  "version": "0.1.6",
+  "version": "0.1.7",
   "released_at": "2026-05-14T00:00:00Z",
   "asset_name": "GameLoopOptimizerClient.exe",
-  "sha256": "ab52170f5d23d83c40c400dfabb9987f7fcc93acb122f7be9feea4eb9d997957",
-  "notes": "Fix updater: use replace() instead of rename() and retry up to 10x for locked file handles."
+  "sha256": "2a221c8e270da806b170db361236431ee90b7c85e5aa44a7a9a704df83652583",
+  "notes": "Fix updater: use MoveFileExW (Windows native API) with REPLACE_EXISTING instead of Python rename — handles locked files correctly."
 }
