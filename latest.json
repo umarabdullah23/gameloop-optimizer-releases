@@ -1,7 +1,7 @@
 {
-  "version": "0.1.5",
+  "version": "0.1.6",
   "released_at": "2026-05-14T00:00:00Z",
-  "asset_name": "GameLoopOptimizer-0.1.5.exe",
-  "sha256": "5cb7c36683e07f63e027841d86a42ef584ee631167aabcd674609b7e145e6ad6",
-  "notes": "Fix crash on launch after auto-update (encoding corruption in updater.py rebuilt clean)."
+  "asset_name": "GameLoopOptimizer-0.1.6.exe",
+  "sha256": "1233c02ef0098415c3fafb6c3e2b82f5a31b9bb07b4a413f77f684c8cfaa61fc",
+  "notes": "Test release v0.1.6."
 }
