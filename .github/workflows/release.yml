@@ -1,0 +1,108 @@
+name: Publish release
+
+# This workflow runs on the PUBLIC releases repo when the private dev repo
+# pushes a new version tag and dispatches an event into this one. It builds
+# the .exe via PyInstaller, computes SHA-256, writes the manifest, and
+# attaches both files to a GitHub release.
+#
+# Setup:
+#   1. In this repo's settings, no secrets needed (uses GITHUB_TOKEN).
+#   2. In the dev (private) repo, create a `repository_dispatch` workflow
+#      that pushes the `Build inputs` (version + ref) to this repo via PAT.
+#
+# Alternative: trigger manually with workflow_dispatch + a Version input.
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version (without v prefix, e.g. 0.2.0)"
+        required: true
+        type: string
+      source_ref:
+        description: "Dev-repo ref to build from (branch / tag / sha)"
+        required: true
+        default: main
+        type: string
+  repository_dispatch:
+    types: [build-release]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    permissions:
+      contents: write  # to create + edit releases
+    steps:
+      - name: Resolve version
+        id: meta
+        shell: pwsh
+        run: |
+          if ($env:GITHUB_EVENT_NAME -eq "repository_dispatch") {
+            $v = "${{ github.event.client_payload.version }}"
+            $ref = "${{ github.event.client_payload.source_ref }}"
+          } else {
+            $v = "${{ inputs.version }}"
+            $ref = "${{ inputs.source_ref }}"
+          }
+          "version=$v"        | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+          "source_ref=$ref"  | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+          "tag=v$v"           | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+
+      - name: Check out dev repo (private)
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ vars.DEV_REPO || 'umarabdullah23/gameloop-optimizer' }}
+          token: ${{ secrets.DEV_REPO_PAT }}
+          ref: ${{ steps.meta.outputs.source_ref }}
+          path: src
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install build deps
+        shell: pwsh
+        run: |
+          pip install --upgrade pip
+          pip install pyinstaller
+          pip install -r src/requirements.txt
+
+      - name: Build with PyInstaller
+        shell: pwsh
+        working-directory: src
+        run: |
+          pyinstaller `
+            --onefile --windowed `
+            --name "GameLoopOptimizer-${{ steps.meta.outputs.version }}" `
+            --icon "developer_app/assets/app-icon-pubg-optimizer.ico" `
+            --add-data "developer_app/optimizer/assets;developer_app/optimizer/assets" `
+            client_app/app.py
+
+      - name: Compute SHA-256 + write manifest
+        shell: pwsh
+        working-directory: src
+        run: |
+          $exe = "dist/GameLoopOptimizer-${{ steps.meta.outputs.version }}.exe"
+          $hash = (Get-FileHash $exe -Algorithm SHA256).Hash.ToLower()
+          $now  = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
+          $manifest = @{
+            version     = "${{ steps.meta.outputs.version }}"
+            released_at = $now
+            asset_name  = (Split-Path $exe -Leaf)
+            sha256      = $hash
+            notes       = ""
+          } | ConvertTo-Json -Depth 5
+          $manifest | Out-File -FilePath dist/latest.json -Encoding utf8
+
+      - name: Create / update GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.meta.outputs.tag }}
+          name: ${{ steps.meta.outputs.tag }}
+          files: |
+            src/dist/GameLoopOptimizer-${{ steps.meta.outputs.version }}.exe
+            src/dist/latest.json
+          generate_release_notes: true
+          draft: false
+          prerelease: false
