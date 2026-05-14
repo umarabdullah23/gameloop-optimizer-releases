@@ -1,7 +1,7 @@
 {
-  "version": "0.1.3",
+  "version": "0.1.4",
   "released_at": "2026-05-14T00:00:00Z",
-  "asset_name": "GameLoopOptimizer-0.1.3.exe",
-  "sha256": "23a886a03a99f02086136312ac6f8f3ce9bbc903ba2ddbf037f056a6b037a5b9",
-  "notes": "Fix auto-update swap: wait for old process to fully exit before replacing exe (no more double-open)."
+  "asset_name": "GameLoopOptimizer-0.1.4.exe",
+  "sha256": "3f9e46cc92ba8e63038d2e285c4e73cd558ad00abc81d8254b3637de8f560320",
+  "notes": "Fix auto-update: app now exits hard (sys.exit) so the swap bat can replace the exe cleanly."
 }
