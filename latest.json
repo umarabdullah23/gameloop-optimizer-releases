@@ -1,7 +1,7 @@
 {
-  "version": "0.1.4",
+  "version": "0.1.5",
   "released_at": "2026-05-14T00:00:00Z",
   "asset_name": "GameLoopOptimizerClient.exe",
-  "sha256": "1a38a4e625e9955c01f453effaaae670af9f531f242008c4f205e5302aaf8ce9",
-  "notes": "Fix sidebar version label (was hardcoded v0.1.0, now reads dynamically)."
+  "sha256": "cba89d03b38333335066e49f31da60b12189ae2bd5b1ac1f196ef40555c61f20",
+  "notes": "Removed manual update check from Settings — update is now handled automatically on launch."
 }
