@@ -1,7 +1,7 @@
 {
-  "version": "0.1.2",
+  "version": "0.1.3",
   "released_at": "2026-05-14T00:00:00Z",
   "asset_name": "GameLoopOptimizerClient.exe",
-  "sha256": "c4c43b5e5ba4c75ef98491c9a5796f92313265c87cfea8b4e797ec9cd2afdfcf",
-  "notes": "Version now shown correctly in Settings tab. Download filename is now version-agnostic."
+  "sha256": "dbb2ba64f948147e165ed70f75f0cfabec66d6a5b2b713ebcc1cbcea28531118",
+  "notes": "Updater now renames exe to GameLoopOptimizerClient.exe on swap. Version string fixed everywhere."
 }
