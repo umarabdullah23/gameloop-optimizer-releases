@@ -1,7 +1,7 @@
 {
-  "version": "0.1.5",
+  "version": "0.1.6",
   "released_at": "2026-05-14T00:00:00Z",
   "asset_name": "GameLoopOptimizerClient.exe",
-  "sha256": "cba89d03b38333335066e49f31da60b12189ae2bd5b1ac1f196ef40555c61f20",
-  "notes": "Removed manual update check from Settings — update is now handled automatically on launch."
+  "sha256": "ab52170f5d23d83c40c400dfabb9987f7fcc93acb122f7be9feea4eb9d997957",
+  "notes": "Fix updater: use replace() instead of rename() and retry up to 10x for locked file handles."
 }
