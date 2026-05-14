@@ -1,7 +1,7 @@
 {
-  "version": "0.1.6",
+  "version": "0.1.7",
   "released_at": "2026-05-14T00:00:00Z",
-  "asset_name": "GameLoopOptimizer-0.1.6.exe",
-  "sha256": "1233c02ef0098415c3fafb6c3e2b82f5a31b9bb07b4a413f77f684c8cfaa61fc",
-  "notes": "Test release v0.1.6."
+  "asset_name": "GameLoopOptimizer-0.1.7.exe",
+  "sha256": "e236a35e7597bba0d6eeebe4e85ad9b2105ad4379dc346b48429db95fdbbe644",
+  "notes": "Fix post-update launch crash: wait 4s after old process exits before swap so Windows releases all handles; use os._exit to skip PyInstaller cleanup race."
 }
