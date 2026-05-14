@@ -1,7 +1,7 @@
 {
-  "version": "0.1.0",
+  "version": "0.1.1",
   "released_at": "2026-05-14T00:00:00Z",
-  "asset_name": "GameLoopOptimizer-0.1.0.exe",
-  "sha256": "554c78ba5b388e65e20b37a1dc52d5680641adcd7362ba8683901d14240375d7",
-  "notes": "Initial release. Forced update modal, dedicated updater.exe for clean swaps."
+  "asset_name": "GameLoopOptimizer-0.1.1.exe",
+  "sha256": "a3165bf54615114c588ac11494109bc7469c5eacba27d4abfa7b607d3e26cf26",
+  "notes": "Test release v0.1.1."
 }
